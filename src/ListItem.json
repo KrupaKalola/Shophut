@@ -1,0 +1,207 @@
+[
+    {
+        "categoryId":"a",
+        "category": "Fruits",
+        "items": [
+            {
+            "id": "1",
+            "name": "Juicy Fresh Watermelon",
+            "rating": "5",
+            "price": 30,
+            "quantity": 1
+        },
+        {
+            "id": "2",
+            "name": "Organic Mango",
+            "rating": "4",
+            "price": 40,
+            "quantity": 1
+        },
+        {
+            "id": "3",
+            "name": "Fresh Apple",
+            "rating": "4",
+            "price": 50,
+            "quantity": 1
+        },
+        {
+            "id": "4",
+            "name": "Pineapple",
+            "rating": "4",
+            "price": 60,
+            "quantity": 1
+        },
+        {
+            "id": "5",
+            "name": "Grapes",
+            "rating": "4",
+            "price": 50,
+            "quantity": 1
+        }
+        ]
+    },
+    {
+        "categoryId":"b",
+        "category": "Vegetables",
+        "items": [
+            {
+                "id": "6",
+                "name": "Tomato",
+                "rating": "4",
+                "price": 20,
+                "quantity": 1
+            },
+            {
+                "id": "7",
+                "name": "Cabbage",
+                "rating": "5",
+                "price": 30,
+                "quantity": 1
+            },
+            {
+                "id": "8",
+                "name": "Potato",
+                "rating": "4",
+                "price": 25,
+                "quantity": 1
+            },
+            {
+                "id": "9",
+                "name": "Cucumber",
+                "rating": "3",
+                "price": 30,
+                "quantity": 1
+            },
+            {
+                "id": "10",
+                "name": "Brocoli",
+                "rating": "4",
+                "price": 40,
+                "quantity": 1
+            }
+        ]
+    },
+    {
+        "categoryId":"c",
+        "category": "Juices",
+        "items": [
+            {
+            "id": "11",
+            "name": "Watermelon Juice",
+            "rating": "4",
+            "price": 70,
+            "quantity": 1
+        },
+        {
+            "id": "12",
+            "name": "Mango Juice",
+            "rating": "4",
+            "price": 90,
+            "quantity": 1
+        },
+        {
+            "id": "13",
+            "name": "Apple Juice",
+            "rating": "4",
+            "price": 80,
+            "quantity": 1
+        },
+        {
+            "id": "14",
+            "name": "Pineapple Juice",
+            "rating": "3",
+            "price": 10,
+            "quantity": 1
+        },
+        {
+            "id": "15",
+            "name": "Grapes Juice",
+            "rating": "4",
+            "price": 60,
+            "quantity": 1
+        }
+        ]
+    },
+    {
+        "categoryId":"d",
+        "category": "Tea & Coffee",
+        "items": [
+            {
+            "id": "16",
+            "name": "Watermelon Juice",
+            "rating": "4",
+            "price": 30,
+            "quantity": 1
+        },
+        {
+            "id": "17",
+            "name": "Mango Juice",
+            "rating": "4",
+            "price": 30,
+            "quantity": 1
+        },
+        {
+            "id": "18",
+            "name": "Apple Juice",
+            "rating": "4",
+            "price": 30,
+            "quantity": 1
+        },
+        {
+            "id": "19",
+            "name": "Pineapple Juice",
+            "rating": "3",
+            "price": 30,
+            "quantity": 1
+        },
+        {
+            "id": "20",
+            "name": "Grapes Juice",
+            "rating": "4",
+            "price": 30,
+            "quantity": 1
+        }
+        ]
+    },
+    {
+        "categoryId":"f",
+        "category": "Jam",
+        "items": [
+            {
+            "id": "21",
+            "name": "Watermelon Juice",
+            "rating": "4",
+            "price": 30,
+            "quantity": 1
+        },
+        {
+            "id": "22",
+            "name": "Mango Juice",
+            "rating": "4",
+            "price": 30,
+            "quantity": 1
+        },
+        {
+            "id": "23",
+            "name": "Apple Juice",
+            "rating": "4",
+            "price": 30,
+            "quantity": 1
+        },
+        {
+            "id": "24",
+            "name": "Pineapple Juice",
+            "rating": "3",
+            "price": 30,
+            "quantity": 1
+        },
+        {
+            "id": "25",
+            "name": "Grapes Juice",
+            "rating": "4",
+            "price": 30,
+            "quantity": 1
+        }
+        ]
+    }
+]

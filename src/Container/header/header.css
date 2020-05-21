@@ -1,0 +1,16 @@
+.header a{
+    color: #fff;
+    text-decoration: none;
+}
+#productList{
+    top:48px !important;
+}
+#primary-search-account-menu{
+    top: 48px !important;
+}
+#productList a{
+    text-decoration: none;
+    color: #000;
+    font-variant: all-petite-caps;
+    font-size: 17px;
+}
