@@ -2,11 +2,11 @@ import { ADD_TO_CART} from './AddToCartTypes'
 import {UPDATE_QUANTITY} from './AddToCartTypes'
 
 
-export const addToCart=({id, name, rating, price, quantity})=>{
+export const addToCart=({id, name, rating, price, quantity, isAdded})=>{
     
     return{
          type: ADD_TO_CART,
-         payload: {id, name, rating, price, quantity}
+         payload: {id, name, rating, price, quantity, isAdded}
      }
 }
 

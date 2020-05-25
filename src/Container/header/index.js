@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '@material-ui/core'
 import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -13,11 +13,12 @@ import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import MoreIcon from '@material-ui/icons/MoreVert';
+
 import { Link } from 'react-router-dom';
 import './header.css'
 import List from '../../ListItem.json'
 
-
+import Login from '../Login/login'
 const useStyles = makeStyles((theme) => ({
   grow: {
     flexGrow: 1,
@@ -88,12 +89,21 @@ const useStyles = makeStyles((theme) => ({
 
 function Header(props) {
   const classes = useStyles();
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-  const [productAnchorEl, setProductAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
+  const [productAnchorEl, setProductAnchorEl] = useState(null);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+
+  const [open, setOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState('false')
+  const [error, setError] = useState({
+    email:'',
+    password:'',
+    all:''
+  })
+
 
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -120,6 +130,13 @@ function Header(props) {
     setProductAnchorEl(null);
   };
 
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
   const productMenu = (
     <Menu
       id="productList"
@@ -127,6 +144,7 @@ function Header(props) {
       keepMounted
       open={Boolean(productAnchorEl)}
       onClose={handleProductMenuClose}
+
       anchorOrigin={{
         vertical: 'bottom',
         horizontal: 'center',
@@ -145,7 +163,7 @@ function Header(props) {
           </MenuItem>
         })
       }
-      
+
     </Menu>)
 
   const menuId = 'primary-search-account-menu';
@@ -160,7 +178,11 @@ function Header(props) {
       onClose={handleMenuClose}
     >
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-      <MenuItem onClick={handleMenuClose}>Logout</MenuItem>
+      <MenuItem onClick={() => {
+        setIsLoggedIn('false')
+        handleMenuClose()
+      }
+      } >Logout</MenuItem>
 
     </Menu>
   );
@@ -197,6 +219,26 @@ function Header(props) {
       </MenuItem>
     </Menu>
   );
+
+  // const handleLogin = (email, password) => {
+  //   if (email === 'krupak@nividata.com' & password === 'krupa@123') {
+  //     setIsLoggedIn('true')
+  //     handleClose()
+  //   }
+  //   else {
+  //       setError({all:"Invalid username or password"})
+  //   }
+  // }
+
+  // const handleBlur=(text,e)=>{
+  //   debugger
+  //   if (text === '') {
+  //     setError({[e.target.name]:"Enter "+e.target.name})
+  //   }
+  //   else{
+  //     setError({[e.target.name]:" "})
+  //   }
+  // }
 
   return (
     <div className={classes.grow, 'header'}>
@@ -245,12 +287,13 @@ function Header(props) {
                 </Badge>
               </IconButton>
             </Link>
+
             <IconButton
               edge="end"
               aria-label="account of current user"
               aria-controls={menuId}
               aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
+              onClick={isLoggedIn === 'true' ? handleProfileMenuOpen : handleClickOpen}
               color="inherit"
             >
               <AccountCircle />
@@ -271,6 +314,8 @@ function Header(props) {
       </AppBar>
       {renderMobileMenu}
       {renderMenu}
+
+      <Login handleClose={handleClose} handleClickOpen={handleClickOpen} open={open} setIsLoggedIn={setIsLoggedIn}/>
     </div>
 
   );

@@ -1,6 +1,7 @@
 import { ADD_TO_CART, UPDATE_QUANTITY } from './AddToCartTypes'
 import { DELETE_FROM_CART } from '../DeleteFromCart/DeleteFromCartTypes'
 import { ContactSupportOutlined } from '@material-ui/icons';
+import { updateQuantity } from './AddToCartAction';
 
 const initialState = {
     badge: 0,
@@ -77,6 +78,7 @@ const findProductIndex = (cart, productID) => {
 }
 
 const updateProductQuantity = (cart, product) => {
+    debugger
     const productIndex = findProductIndex(cart, product.id)
 
     const updatedCart = [...cart];
@@ -84,9 +86,10 @@ const updateProductQuantity = (cart, product) => {
 
     const updatedQuantityProduct = {
         ...existingProduct,
-        quantity: existingProduct.quantity + product.quantity
+        quantity: existingProduct.quantity + product.quantity,
+        isAdded: "true"
     };
-
+console.log('updatedQuantityProduct:' , updatedQuantityProduct)
     updatedCart[productIndex] = updatedQuantityProduct;
 
     return updatedCart;

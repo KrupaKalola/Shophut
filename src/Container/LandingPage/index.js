@@ -10,7 +10,11 @@ import { addToCart } from '../../Redux'
 
 class Home extends Component {
 
+
     handleAddItemToCart = (product) => {
+        debugger
+        product.isAdded = true
+        console.log(product)
         this.props.addTOCart(product)
     }
 

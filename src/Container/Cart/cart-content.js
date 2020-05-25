@@ -29,8 +29,14 @@ function CartContent(props) {
         debugger
         if (p === 'minus') {
             let value = e.target.parentNode.parentNode.nextSibling.value
-            const minus = parseInt(value) - 1
-            e.target.parentNode.parentNode.nextSibling.value = minus
+            let minus = parseInt(value) - 1
+            if (minus > 0) {
+                e.target.parentNode.parentNode.nextSibling.value = minus
+            }
+            else {
+                minus = 0
+                e.target.parentNode.parentNode.nextSibling.value = minus
+            }
             const obj = {
                 quantity: minus,
                 cart: props.cart,
@@ -38,7 +44,7 @@ function CartContent(props) {
             }
             props.updateQuantity(obj)
         }
-        if(p==='plus') {
+        if (p === 'plus') {
             let value = e.target.parentNode.parentNode.previousSibling.value
             const sum = parseInt(value) + 1
 
@@ -83,13 +89,13 @@ function CartContent(props) {
                                 </p>
                                 <p>1 kg</p>
                                 <p>${product.price}</p>
-                              
+
                             </Grid>
                             <Grid item lg='2'>
                                 <p>Qty:</p>
                                 <div className='quantity-square'>
                                     <span id='minus' onClick={(e) => handleChange(e, product.id)}><FontAwesomeIcon icon={faMinus} ></FontAwesomeIcon></span>
-                                    <input type='type' value={product.quantity} style={{ width: '50px' }} onChange={(e) => handleQuanitityChange(e, product.id)} readOnly />
+                                    <input type='type' value={product.quantity} style={{ width: '50px' }} readOnly />
                                     <span id='plus' onClick={(e) => handleChange(e, product.id)}><FontAwesomeIcon icon={faPlus} ></FontAwesomeIcon></span>
                                 </div>
                             </Grid>

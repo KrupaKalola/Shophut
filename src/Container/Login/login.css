@@ -1,0 +1,21 @@
+.loginForm .MuiFormLabel-root.Mui-focused{
+    color: #2eab70 !important;
+}
+.loginForm .MuiInput-underline:after{
+    border-bottom: 2px solid #2eab70 !important;
+}
+.loginForm .MuiInputBase-root{
+    margin-bottom: 20px;
+}
+.loginForm .MuiButton-root{
+    min-width: 100% !important;
+    background-color: #2eab70 !important;
+    color: #fff !important;
+}
+.loginForm .MuiFormControl-root{
+    min-width: 100% !important;
+}
+.loginForm .MuiDialogActions-root{
+    padding: 0;
+    margin-top: 8px;
+}
