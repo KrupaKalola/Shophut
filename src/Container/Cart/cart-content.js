@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react'
 import fruit1 from '../../images/fruit1.jpg'
 import './cart-content.css'
-import { Grid, Button, IconButton } from '@material-ui/core'
+import { Grid, Button, IconButton, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@material-ui/core'
 import { DeleteOutlineOutlined } from '@material-ui/icons'
 import { Link } from 'react-router-dom'
 
@@ -13,20 +13,35 @@ function CartContent(props) {
 
     const countItem = props.cart.length
     let price = 0
+    // const [open, setOpen] = useState(false);
+    const [deleteItem , setDeleteItem ] = useState({id:'', cart:'', open:false})
 
-    const handleDelete = (id) => {
-        const obj = {
+    const handleClickOpen = (id) => {
+        // setOpen(true);
+        setDeleteItem({
             id: id,
-            cart: props.cart
-        }
-        props.deleteFromCart(obj)
+            cart: props.cart,
+            open: true
+        })
+
+    };
+
+    const handleClose = () => {
+        setDeleteItem({... {open:false}});
+        console.log(deleteItem)
+    };
+
+    const handleDelete = () => {
+        debugger
+        props.deleteFromCart(deleteItem)
+        setDeleteItem({... {open:false}});
+
     }
 
     const handleChange = (e, id) => {
         const p = e.target.parentNode.parentNode.getAttribute("id")
         console.log(p)
 
-        debugger
         if (p === 'minus') {
             let value = e.target.parentNode.parentNode.nextSibling.value
             let minus = parseInt(value) - 1
@@ -34,7 +49,7 @@ function CartContent(props) {
                 e.target.parentNode.parentNode.nextSibling.value = minus
             }
             else {
-                minus = 0
+                minus = 1
                 e.target.parentNode.parentNode.nextSibling.value = minus
             }
             const obj = {
@@ -58,23 +73,21 @@ function CartContent(props) {
         }
     }
 
-    const handleQuanitityChange = (e, id) => {
-        debugger
-        const obj = {
-            quantity: e.target.value,
-            cart: props.cart,
-            id: id
-        }
-        console.log(obj)
-        props.updateQuantity(obj)
-    }
+    // const handleQuanitityChange = (e, id) => {
+    //     const obj = {
+    //         quantity: e.target.value,
+    //         cart: props.cart,
+    //         id: id
+    //     }
+    //     console.log(obj)
+    //     props.updateQuantity(obj)
+    // }
 
     //Conditoinally render cartItems 
     let display
     if (props.cart.length > 0) {
         display = <ul>
             {props.cart.map((product) => {
-                debugger
                 console.log(props.cart)
                 price += product.price * product.quantity
                 return (
@@ -104,7 +117,7 @@ function CartContent(props) {
                                 <p>${product.price * product.quantity}</p>
                             </Grid>
                             <Grid item lg='1'>
-                                <IconButton onClick={() => handleDelete(product.id)}>
+                                <IconButton onClick={() => handleClickOpen(product.id)}>
                                     <DeleteOutlineOutlined color='error' />
                                 </IconButton>
                             </Grid>
@@ -178,6 +191,28 @@ function CartContent(props) {
                     </Grid>
                 </Grid>
             </div>
+
+            <Dialog
+                    open={deleteItem.open}
+                    onClose={handleClose}
+                    aria-labelledby="alert-dialog-title"
+                    aria-describedby="alert-dialog-description"
+                >
+                    <DialogTitle id="alert-dialog-title">Conformation</DialogTitle>
+                    <DialogContent>
+                        <DialogContentText id="alert-dialog-description">
+                           Are you sure, you want to remove item from cart? 
+                </DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={handleClose} color="primary">
+                            Cancel
+                </Button>
+                        <Button onClick={handleDelete} style={{color:"#f00"}} autoFocus>
+                            Delete
+                </Button>
+                    </DialogActions>
+                </Dialog>
         </Fragment>
     )
 }

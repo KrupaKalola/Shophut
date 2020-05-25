@@ -10,10 +10,12 @@ import { addToCart } from '../../Redux'
 
 import './product.css'
 
-function SpecificProduct() {
+function SpecificProduct(props) {
 
     const handleAddItemToCart = (product) => {
-        this.props.addTOCart(product)
+        debugger
+        console.log(product)
+        props.addTOCart(product)
     }
 
     const { id, category } = useParams()
@@ -33,9 +35,9 @@ function SpecificProduct() {
                             if (data.categoryId === id) {
                                 console.log(data.items)
                                 {
-                                    return data.items.map((item) => {
-                                        console.log(item)
-                                        return <ProductsCard addItemsTOCart={handleAddItemToCart} data={item} />
+                                    return data.items.map((data) => {
+                                        console.log(data)
+                                        return <ProductsCard addItemsTOCart={handleAddItemToCart} data={data} />
                                     })
                                 }
                             }
@@ -47,6 +49,12 @@ function SpecificProduct() {
     )
 }
 
+const mapStateToProps = state => {
+    return {
+        badge: state.badge,
+        cart: state.cartItem
+    }
+}
 
 const mapDispatchToProps = dispatch => {
     return {
@@ -55,4 +63,4 @@ const mapDispatchToProps = dispatch => {
 }
 
 
-export default connect(mapDispatchToProps)(SpecificProduct)
+export default connect(mapStateToProps, mapDispatchToProps)(SpecificProduct)
