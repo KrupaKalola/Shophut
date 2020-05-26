@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from 'react'
 import fruit1 from '../../images/fruit1.jpg'
 import './cart-content.css'
+import './quantity-square.css'
 import { Grid, Button, IconButton, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@material-ui/core'
 import { DeleteOutlineOutlined } from '@material-ui/icons'
 import { Link } from 'react-router-dom'
@@ -10,7 +11,7 @@ import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons'
 
 
 function CartContent(props) {
-
+console.log("cart: ", props.cart)
     const countItem = props.cart.length
     let price = 0
     // const [open, setOpen] = useState(false);
@@ -41,7 +42,7 @@ function CartContent(props) {
     const handleChange = (e, id) => {
         const p = e.target.parentNode.parentNode.getAttribute("id")
         console.log(p)
-
+debugger
         if (p === 'minus') {
             let value = e.target.parentNode.parentNode.nextSibling.value
             let minus = parseInt(value) - 1

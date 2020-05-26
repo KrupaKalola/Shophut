@@ -3,18 +3,16 @@ import { Container, Grid } from '@material-ui/core'
 import SliderMain from './slider'
 import ProductsCard from '../components/products_card'
 import Category from './Category'
-import List from '../../ListItem.json'
 
 import { connect } from 'react-redux'
 import { addToCart } from '../../Redux'
 
 class Home extends Component {
-
+    
 
     handleAddItemToCart = (product) => {
-        debugger
-        product.isAdded = true
-        console.log(product)
+        // product.isAdded = true
+        // console.log(product)
         this.props.addTOCart(product)
     }
 
@@ -36,9 +34,7 @@ class Home extends Component {
                             </p>
                             <Grid container spacing={2}>
                                     {
-                                        List.map((data, index) => {
-                                            debugger
-                                            console.log(data.items[index])
+                                        this.props.list.map((data, index) => {
 
                                             if (index < 4) {
                                                 return <ProductsCard addItemsTOCart={this.handleAddItemToCart.bind(this)} data={data.items[index]}
@@ -46,7 +42,6 @@ class Home extends Component {
                                             }
                                         })
                                     }
-                                {/* <ProductsCard addItemsTOCart={this.handleAddItemToCart.bind(this)} List={List} /> */}
                             </Grid>
 
                         </Grid>
@@ -60,7 +55,7 @@ class Home extends Component {
 const mapStateToProps = state => {
     return {
         badge: state.badge,
-        cart: state.cartItem
+        list: state.list
     }
 }
 

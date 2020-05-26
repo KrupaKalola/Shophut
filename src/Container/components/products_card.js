@@ -3,7 +3,9 @@ import { Card, CardContent, CardActionArea, Typography, Box, IconButton, Grid, G
 import { ShoppingCart } from '@material-ui/icons';
 import Rating from '@material-ui/lab/Rating';
 
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
+import { updateQuantity } from '../../Redux'
+
 import Quantity_section from '../components/quantity_section'
 
 
@@ -11,17 +13,23 @@ import './products_card.css'
 import fruit1 from '../../images/fruit1.jpg'
 
 function ProductsCard(props) {
-//     const cart = props.cart
-//     const item =cart.fliter(p=>p.id===props.data.id)
-//     const showQuantity = (status, quantity, id) => {
-//     status = item.isAdded
 
-// console.log(status)
 
-//         if (status == true) {
-//             return <Quantity_section quantity={quantity} id={id} />
-//         }
-//     }
+    const isAddedStatus = (status, quantity , id) => {
+        debugger
+        console.log('status:' , status )
+        if (status == true) {
+            return <Quantity_section quantity={quantity} id={id} cart={props.cart} updateQuantity={props.updateQuantity}/>
+        }
+        else {
+            return <Typography className='product-cart' onClick={() => props.addItemsTOCart(props.data)} >
+                <IconButton style={{ padding: '0px' }}>
+                    <ShoppingCart />
+                </IconButton>
+            </Typography>
+        }
+    }
+
     return (
         <Fragment>
             <Grow in='true'
@@ -44,15 +52,9 @@ function ProductsCard(props) {
                                 </Typography>
                                 <Typography style={{ color: '#3ba66b', fontWeight: '300' }} className='product-price'>
                                     ${props.data.price}
-                                    {/* {showQuantity(props.data.isAdded , props.data.quantity, props.data.id)} */}
-
-                                </Typography>
-                                <Typography className='product-cart' onClick={() => props.addItemsTOCart(props.data)}>
-                                    <IconButton style={{ padding: '0px' }}>
-                                        <ShoppingCart />
-                                    </IconButton>
                                 </Typography>
 
+                                {isAddedStatus(props.data.isAdded, props.data.quantity , props.data.id)}
 
                             </CardContent>
                         </CardActionArea>
@@ -65,10 +67,15 @@ function ProductsCard(props) {
     )
 }
 
-const mapStateToProps=state=>{
-    return{
-        cart: state.cartItem
+const mapStateToProps = state => {
+    return {
+        cart: state.cartItem,
+        list: state.list
     }
 }
-
-export default connect(mapStateToProps)(ProductsCard)
+const mapDispatchToProps = dispatch => {
+    return {
+        updateQuantity: (obj)=>dispatch(updateQuantity(obj))
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(ProductsCard)

@@ -10,10 +10,8 @@ export const addToCart=({id, name, rating, price, quantity, isAdded})=>{
      }
 }
 
-
 export const updateQuantity=({quantity, cart, id})=>{
-     debugger;
-    
+    debugger
     return{
          type: UPDATE_QUANTITY,
          payload: {quantity, cart, id}

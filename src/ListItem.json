@@ -9,7 +9,7 @@
             "rating": "5",
             "price": 30,
             "quantity": 1,
-            "isAdded": "false"
+            "isAdded": false
         },
         {
             "id": "2",
@@ -17,7 +17,7 @@
             "rating": "4",
             "price": 40,
             "quantity": 1,
-            "isAdded": "false"
+            "isAdded": false
         },
         {
             "id": "3",
@@ -25,7 +25,7 @@
             "rating": "4",
             "price": 50,
             "quantity": 1,
-            "isAdded": "false"
+            "isAdded": false
         },
         {
             "id": "4",
@@ -33,7 +33,7 @@
             "rating": "4",
             "price": 60,
             "quantity": 1,
-            "isAdded": "false"
+            "isAdded": false
         },
         {
             "id": "5",
@@ -41,7 +41,7 @@
             "rating": "4",
             "price": 50,
             "quantity": 1,
-            "isAdded": "false"
+            "isAdded": false
         }
         ]
     },
@@ -54,35 +54,40 @@
                 "name": "Tomato",
                 "rating": "4",
                 "price": 20,
-                "quantity": 1
+                "quantity": 1,
+                "isAdded": false
             },
             {
                 "id": "7",
                 "name": "Cabbage",
                 "rating": "5",
                 "price": 30,
-                "quantity": 1
+                "quantity": 1,
+                "isAdded": false
             },
             {
                 "id": "8",
                 "name": "Potato",
                 "rating": "4",
                 "price": 25,
-                "quantity": 1
+                "quantity": 1,
+                "isAdded": false
             },
             {
                 "id": "9",
                 "name": "Cucumber",
                 "rating": "3",
                 "price": 30,
-                "quantity": 1
+                "quantity": 1,
+                "isAdded": false
             },
             {
                 "id": "10",
                 "name": "Brocoli",
                 "rating": "4",
                 "price": 40,
-                "quantity": 1
+                "quantity": 1,
+                "isAdded": false
             }
         ]
     },
@@ -95,35 +100,40 @@
             "name": "Watermelon Juice",
             "rating": "4",
             "price": 70,
-            "quantity": 1
+            "quantity": 1,
+            "isAdded": false
         },
         {
             "id": "12",
             "name": "Mango Juice",
             "rating": "4",
             "price": 90,
-            "quantity": 1
+            "quantity": 1,
+            "isAdded": false
         },
         {
             "id": "13",
             "name": "Apple Juice",
             "rating": "4",
             "price": 80,
-            "quantity": 1
+            "quantity": 1,
+            "isAdded": false
         },
         {
             "id": "14",
             "name": "Pineapple Juice",
             "rating": "3",
             "price": 10,
-            "quantity": 1
+            "quantity": 1,
+            "isAdded": false
         },
         {
             "id": "15",
             "name": "Grapes Juice",
             "rating": "4",
             "price": 60,
-            "quantity": 1
+            "quantity": 1,
+            "isAdded": false
         }
         ]
     },
@@ -136,35 +146,40 @@
             "name": "Watermelon Juice",
             "rating": "4",
             "price": 30,
-            "quantity": 1
+            "quantity": 1,
+            "isAdded": false
         },
         {
             "id": "17",
             "name": "Mango Juice",
             "rating": "4",
             "price": 30,
-            "quantity": 1
+            "quantity": 1,
+            "isAdded": false
         },
         {
             "id": "18",
             "name": "Apple Juice",
             "rating": "4",
             "price": 30,
-            "quantity": 1
+            "quantity": 1,
+            "isAdded": false
         },
         {
             "id": "19",
             "name": "Pineapple Juice",
             "rating": "3",
             "price": 30,
-            "quantity": 1
+            "quantity": 1,
+            "isAdded": false
         },
         {
             "id": "20",
             "name": "Grapes Juice",
             "rating": "4",
             "price": 30,
-            "quantity": 1
+            "quantity": 1,
+            "isAdded": false
         }
         ]
     },
@@ -177,35 +192,40 @@
             "name": "Watermelon Juice",
             "rating": "4",
             "price": 30,
-            "quantity": 1
+            "quantity": 1,
+            "isAdded": false
         },
         {
             "id": "22",
             "name": "Mango Juice",
             "rating": "4",
             "price": 30,
-            "quantity": 1
+            "quantity": 1,
+            "isAdded": false
         },
         {
             "id": "23",
             "name": "Apple Juice",
             "rating": "4",
             "price": 30,
-            "quantity": 1
+            "quantity": 1,
+            "isAdded": false
         },
         {
             "id": "24",
             "name": "Pineapple Juice",
             "rating": "3",
             "price": 30,
-            "quantity": 1
+            "quantity": 1,
+            "isAdded": false
         },
         {
             "id": "25",
             "name": "Grapes Juice",
             "rating": "4",
             "price": 30,
-            "quantity": 1
+            "quantity": 1,
+            "isAdded": false
         }
         ]
     }
