@@ -15,12 +15,12 @@ console.log("cart: ", props.cart)
     const countItem = props.cart.length
     let price = 0
     // const [open, setOpen] = useState(false);
-    const [deleteItem , setDeleteItem ] = useState({id:'', cart:'', open:false})
+    const [deleteItem , setDeleteItem ] = useState({product:'', cart:'', open:false})
 
-    const handleClickOpen = (id) => {
+    const handleClickOpen = (product) => {
         // setOpen(true);
         setDeleteItem({
-            id: id,
+            product: product,
             cart: props.cart,
             open: true
         })
@@ -118,7 +118,7 @@ debugger
                                 <p>${product.price * product.quantity}</p>
                             </Grid>
                             <Grid item lg='1'>
-                                <IconButton onClick={() => handleClickOpen(product.id)}>
+                                <IconButton onClick={() => handleClickOpen(product)}>
                                     <DeleteOutlineOutlined color='error' />
                                 </IconButton>
                             </Grid>

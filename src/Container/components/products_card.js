@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react'
 import { Card, CardContent, CardActionArea, Typography, Box, IconButton, Grid, Grow } from '@material-ui/core'
-import { ShoppingCart } from '@material-ui/icons';
+import { ShoppingCart, Category } from '@material-ui/icons';
 import Rating from '@material-ui/lab/Rating';
 
 import { connect } from 'react-redux'

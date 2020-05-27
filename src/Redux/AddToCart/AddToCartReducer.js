@@ -16,13 +16,16 @@ const AddToCartReducer = (state = initialState, action) => {
             const product = action.payload;
             const cart = state.cartItem;
             const list = state.list;
+            const isAdded= true;
             console.log(action.payload)
             const existingProductIndex = findProductIndex(cart, product.id)
 
             const updatedCart = existingProductIndex >= 0
                 ? updateProductQuantity(cart, product)
-                : [...cart, product];
-            const updatedList = existingProductIndex < 0 ? updateProductStatus(list, product) : [...list]
+                : addNewProduct(cart, product);
+
+
+            const updatedList = existingProductIndex < 0 ? updateProductStatus(list, product, isAdded) : [...list]
 
             console.log('updatedList inside: ', updatedList)
             return Object.assign({}, state, {
@@ -35,10 +38,13 @@ const AddToCartReducer = (state = initialState, action) => {
         case DELETE_FROM_CART: {
 
             const cart = action.payload.cart
-            const deleteId = action.payload.id
+            const product = action.payload.product
+            const list = state.list
+            const isAdded= false
 
-            const afterRemoveCart = cart.filter(p => p.id !== deleteId)
+            const afterRemoveCart = cart.filter(p => p.id !== product.id)
 
+            const updatedList = updateProductStatus(list, product, isAdded)
 
             return Object.assign({}, state, {
                 badge: state.badge - 1,
@@ -51,8 +57,25 @@ const AddToCartReducer = (state = initialState, action) => {
             const cart = action.payload.cart
             const newQuantity = action.payload.quantity
             const newQuantityId = action.payload.id
-
+            const list = state.list
             // console.log('action: ', action)
+
+            // update List
+            // const updatedList = [...list]
+
+            // const category = list.filter(p=>p.categoryId === categoryId)
+
+            // const items = category.items
+
+            // const categoryItem = category.filter(item=>item.id === newQuantityId)
+
+            // categoryItem = {...categoryItem , quantity: categoryItem.quantity + newQuantity }
+
+            // items = [...items , categoryItem]
+
+            // category = {...category, items}
+
+            // updatedList = {...updatedList, category}
 
             const updatedCart = [...cart]
             // console.log('Cart:', updatedCart)
@@ -73,6 +96,7 @@ const AddToCartReducer = (state = initialState, action) => {
 
             return Object.assign({}, state, {
                 cartItem: updatedCart
+                // list : updatedList
 
             })
         }
@@ -86,6 +110,17 @@ const findProductIndex = (cart, productID) => {
     return cart.findIndex(p => p.id === productID);
 }
 
+const addNewProduct = (cart, product) => {
+    debugger
+    console.log("before: ", product)
+
+    const quantity = product.quantity + 1
+
+    product = { ...product, quantity: quantity }
+    console.log(product)
+
+    return [...cart, product]
+}
 const updateProductQuantity = (cart, product) => {
     const productIndex = findProductIndex(cart, product.id)
 
@@ -102,7 +137,7 @@ const updateProductQuantity = (cart, product) => {
     return updatedCart;
 }
 
-const updateProductStatus = (list, product) => {
+const updateProductStatus = (list, product, isAdded) => {
     const updatedList = [...list];
 
     list.map((data, index) => {
@@ -118,7 +153,8 @@ const updateProductStatus = (list, product) => {
 
             const updateStatus = {
                 ...existingProduct,
-                isAdded: true
+                isAdded: isAdded,
+                quantity: isAdded===true?existingProduct.quantity + 1 : 0
             }
             console.log('updateStatus : ', updateStatus)
 

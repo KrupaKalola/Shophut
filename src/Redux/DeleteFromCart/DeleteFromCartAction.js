@@ -1,9 +1,9 @@
 import { DELETE_FROM_CART } from './DeleteFromCartTypes'
 
-export const deleteFromCart=({id , cart})=>{
+export const deleteFromCart=({product , cart})=>{
 
     return{
         type: DELETE_FROM_CART,
-        payload: {id, cart}
+        payload: {product, cart}
     }
 }

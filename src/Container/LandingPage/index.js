@@ -37,7 +37,7 @@ class Home extends Component {
                                         this.props.list.map((data, index) => {
 
                                             if (index < 4) {
-                                                return <ProductsCard addItemsTOCart={this.handleAddItemToCart.bind(this)} data={data.items[index]}
+                                                return <ProductsCard addItemsTOCart={this.handleAddItemToCart.bind(this)} data={data.items[index]} categoryId={data.categoryId}
                                                 />
                                             }
                                         })

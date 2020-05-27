@@ -8,7 +8,7 @@
             "name": "Juicy Fresh Watermelon",
             "rating": "5",
             "price": 30,
-            "quantity": 1,
+            "quantity": 0,
             "isAdded": false
         },
         {
@@ -16,7 +16,7 @@
             "name": "Organic Mango",
             "rating": "4",
             "price": 40,
-            "quantity": 1,
+            "quantity": 0,
             "isAdded": false
         },
         {
@@ -24,7 +24,7 @@
             "name": "Fresh Apple",
             "rating": "4",
             "price": 50,
-            "quantity": 1,
+            "quantity": 0,
             "isAdded": false
         },
         {
@@ -32,7 +32,7 @@
             "name": "Pineapple",
             "rating": "4",
             "price": 60,
-            "quantity": 1,
+            "quantity": 0,
             "isAdded": false
         },
         {
@@ -40,7 +40,7 @@
             "name": "Grapes",
             "rating": "4",
             "price": 50,
-            "quantity": 1,
+            "quantity": 0,
             "isAdded": false
         }
         ]
@@ -54,7 +54,7 @@
                 "name": "Tomato",
                 "rating": "4",
                 "price": 20,
-                "quantity": 1,
+                "quantity": 0,
                 "isAdded": false
             },
             {
@@ -62,7 +62,7 @@
                 "name": "Cabbage",
                 "rating": "5",
                 "price": 30,
-                "quantity": 1,
+                "quantity": 0,
                 "isAdded": false
             },
             {
@@ -70,7 +70,7 @@
                 "name": "Potato",
                 "rating": "4",
                 "price": 25,
-                "quantity": 1,
+                "quantity": 0,
                 "isAdded": false
             },
             {
@@ -78,15 +78,15 @@
                 "name": "Cucumber",
                 "rating": "3",
                 "price": 30,
-                "quantity": 1,
+                "quantity": 0,
                 "isAdded": false
             },
             {
-                "id": "10",
+                "id": "00",
                 "name": "Brocoli",
                 "rating": "4",
                 "price": 40,
-                "quantity": 1,
+                "quantity": 0,
                 "isAdded": false
             }
         ]
@@ -96,43 +96,43 @@
         "category": "Juices",
         "items": [
             {
-            "id": "11",
+            "id": "00",
             "name": "Watermelon Juice",
             "rating": "4",
             "price": 70,
-            "quantity": 1,
+            "quantity": 0,
             "isAdded": false
         },
         {
-            "id": "12",
+            "id": "02",
             "name": "Mango Juice",
             "rating": "4",
             "price": 90,
-            "quantity": 1,
+            "quantity": 0,
             "isAdded": false
         },
         {
-            "id": "13",
+            "id": "03",
             "name": "Apple Juice",
             "rating": "4",
             "price": 80,
-            "quantity": 1,
+            "quantity": 0,
             "isAdded": false
         },
         {
-            "id": "14",
+            "id": "04",
             "name": "Pineapple Juice",
             "rating": "3",
-            "price": 10,
-            "quantity": 1,
+            "price": 90,
+            "quantity": 0,
             "isAdded": false
         },
         {
-            "id": "15",
+            "id": "05",
             "name": "Grapes Juice",
             "rating": "4",
             "price": 60,
-            "quantity": 1,
+            "quantity": 0,
             "isAdded": false
         }
         ]
@@ -142,35 +142,35 @@
         "category": "Tea & Coffee",
         "items": [
             {
-            "id": "16",
+            "id": "06",
             "name": "Watermelon Juice",
             "rating": "4",
             "price": 30,
-            "quantity": 1,
+            "quantity": 0,
             "isAdded": false
         },
         {
-            "id": "17",
+            "id": "07",
             "name": "Mango Juice",
             "rating": "4",
             "price": 30,
-            "quantity": 1,
+            "quantity": 0,
             "isAdded": false
         },
         {
-            "id": "18",
+            "id": "08",
             "name": "Apple Juice",
             "rating": "4",
             "price": 30,
-            "quantity": 1,
+            "quantity": 0,
             "isAdded": false
         },
         {
-            "id": "19",
+            "id": "09",
             "name": "Pineapple Juice",
             "rating": "3",
             "price": 30,
-            "quantity": 1,
+            "quantity": 0,
             "isAdded": false
         },
         {
@@ -178,7 +178,7 @@
             "name": "Grapes Juice",
             "rating": "4",
             "price": 30,
-            "quantity": 1,
+            "quantity": 0,
             "isAdded": false
         }
         ]
@@ -188,11 +188,11 @@
         "category": "Jam",
         "items": [
             {
-            "id": "21",
+            "id": "20",
             "name": "Watermelon Juice",
             "rating": "4",
             "price": 30,
-            "quantity": 1,
+            "quantity": 0,
             "isAdded": false
         },
         {
@@ -200,7 +200,7 @@
             "name": "Mango Juice",
             "rating": "4",
             "price": 30,
-            "quantity": 1,
+            "quantity": 0,
             "isAdded": false
         },
         {
@@ -208,7 +208,7 @@
             "name": "Apple Juice",
             "rating": "4",
             "price": 30,
-            "quantity": 1,
+            "quantity": 0,
             "isAdded": false
         },
         {
@@ -216,7 +216,7 @@
             "name": "Pineapple Juice",
             "rating": "3",
             "price": 30,
-            "quantity": 1,
+            "quantity": 0,
             "isAdded": false
         },
         {
@@ -224,7 +224,7 @@
             "name": "Grapes Juice",
             "rating": "4",
             "price": 30,
-            "quantity": 1,
+            "quantity": 0,
             "isAdded": false
         }
         ]
