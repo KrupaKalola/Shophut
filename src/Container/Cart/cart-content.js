@@ -11,38 +11,39 @@ import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons'
 
 
 function CartContent(props) {
-console.log("cart: ", props.cart)
-    const countItem = props.cart.length
+    console.log("cart: ", props.cart)
+    // const countItem = props.cart.length
+    const countItem = 1
     let price = 0
     // const [open, setOpen] = useState(false);
-    const [deleteItem , setDeleteItem ] = useState({product:'', cart:'', open:false})
+    const [deleteItem, setDeleteItem] = useState({ product: '', cart: '', categoryId:'', open: false })
 
-    const handleClickOpen = (product) => {
+    const handleClickOpen = (product, categoryId) => {
         // setOpen(true);
+        console.log('categoryId to delete ', categoryId)
         setDeleteItem({
             product: product,
             cart: props.cart,
+            categoryId:categoryId,
             open: true
         })
 
     };
 
     const handleClose = () => {
-        setDeleteItem({... {open:false}});
-        console.log(deleteItem)
+        setDeleteItem({ ... { open: false } });
     };
 
     const handleDelete = () => {
         debugger
         props.deleteFromCart(deleteItem)
-        setDeleteItem({... {open:false}});
+        setDeleteItem({ ... { open: false } });
 
     }
 
-    const handleChange = (e, id) => {
+    const handleChange = (e, id, categoryId) => {
         const p = e.target.parentNode.parentNode.getAttribute("id")
-        console.log(p)
-debugger
+        debugger
         if (p === 'minus') {
             let value = e.target.parentNode.parentNode.nextSibling.value
             let minus = parseInt(value) - 1
@@ -56,6 +57,7 @@ debugger
             const obj = {
                 quantity: minus,
                 cart: props.cart,
+                categoryId:categoryId,
                 id: id
             }
             props.updateQuantity(obj)
@@ -68,6 +70,7 @@ debugger
             const obj = {
                 quantity: sum,
                 cart: props.cart,
+                categoryId:categoryId,
                 id: id
             }
             props.updateQuantity(obj)
@@ -88,43 +91,48 @@ debugger
     let display
     if (props.cart.length > 0) {
         display = <ul>
-            {props.cart.map((product) => {
-                console.log(props.cart)
-                price += product.price * product.quantity
-                return (
-                    <li key='index'>
-                        <Grid container justify='space-evenly'>
-                            <Grid item lg='2' style={{ margin: 'auto 0' }}>
-                                <img src={fruit1} height='120' width='120'></img>
-                            </Grid>
-                            <Grid item lg='6'>
-                                <p>
-                                    {product.name}
-                                </p>
-                                <p>1 kg</p>
-                                <p>${product.price}</p>
+            {props.cart.map((data) => {
+                console.log(data)
+                console.log(data.items[0].name)
+                const categoryId = data.categoryId
+              return  data.items.map((product) => {
+console.log('items' , product)
+                        price += product.price * product.quantity
+                        return (
+                            <li key='index'>
+                                <Grid container justify='space-evenly'>
+                                    <Grid item lg='2' style={{ margin: 'auto 0' }}>
+                                        <img src={fruit1} height='120' width='120'></img>
+                                    </Grid>
+                                    <Grid item lg='6'>
+                                        <p>
+                                            {product.name}
+                                        </p>
+                                        <p>1 kg</p>
+                                        <p>${product.price}</p>
 
-                            </Grid>
-                            <Grid item lg='2'>
-                                <p>Qty:</p>
-                                <div className='quantity-square'>
-                                    <span id='minus' onClick={(e) => handleChange(e, product.id)}><FontAwesomeIcon icon={faMinus} ></FontAwesomeIcon></span>
-                                    <input type='type' value={product.quantity} style={{ width: '50px' }} readOnly />
-                                    <span id='plus' onClick={(e) => handleChange(e, product.id)}><FontAwesomeIcon icon={faPlus} ></FontAwesomeIcon></span>
-                                </div>
-                            </Grid>
-                            <Grid item lg='1'>
-                                <p>Total</p>
-                                <p>${product.price * product.quantity}</p>
-                            </Grid>
-                            <Grid item lg='1'>
-                                <IconButton onClick={() => handleClickOpen(product)}>
-                                    <DeleteOutlineOutlined color='error' />
-                                </IconButton>
-                            </Grid>
-                        </Grid>
-                    </li>
-                )
+                                    </Grid>
+                                    <Grid item lg='2'>
+                                        <p>Qty:</p>
+                                        <div className='quantity-square'>
+                                            <span id='minus' onClick={(e) => handleChange(e, product.id, categoryId)}><FontAwesomeIcon icon={faMinus} ></FontAwesomeIcon></span>
+                                            <input type='type' value={product.quantity} style={{ width: '50px' }} readOnly />
+                                            <span id='plus' onClick={(e) => handleChange(e, product.id, categoryId)}><FontAwesomeIcon icon={faPlus} ></FontAwesomeIcon></span>
+                                        </div>
+                                    </Grid>
+                                    <Grid item lg='1'>
+                                        <p>Total</p>
+                                        <p>${product.price * product.quantity}</p>
+                                    </Grid>
+                                    <Grid item lg='1'>
+                                        <IconButton onClick={() => handleClickOpen(product, categoryId)}>
+                                            <DeleteOutlineOutlined color='error' />
+                                        </IconButton>
+                                    </Grid>
+                                </Grid>
+                            </li>
+                        )
+                })
             })}
 
         </ul>
@@ -194,26 +202,26 @@ debugger
             </div>
 
             <Dialog
-                    open={deleteItem.open}
-                    onClose={handleClose}
-                    aria-labelledby="alert-dialog-title"
-                    aria-describedby="alert-dialog-description"
-                >
-                    <DialogTitle id="alert-dialog-title">Conformation</DialogTitle>
-                    <DialogContent>
-                        <DialogContentText id="alert-dialog-description">
-                           Are you sure, you want to remove item from cart? 
+                open={deleteItem.open}
+                onClose={handleClose}
+                aria-labelledby="alert-dialog-title"
+                aria-describedby="alert-dialog-description"
+            >
+                <DialogTitle id="alert-dialog-title">Conformation</DialogTitle>
+                <DialogContent>
+                    <DialogContentText id="alert-dialog-description">
+                        Are you sure, you want to remove item from cart?
                 </DialogContentText>
-                    </DialogContent>
-                    <DialogActions>
-                        <Button onClick={handleClose} color="primary">
-                            Cancel
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={handleClose} color="primary">
+                        Cancel
                 </Button>
-                        <Button onClick={handleDelete} style={{color:"#f00"}} autoFocus>
-                            Delete
+                    <Button onClick={handleDelete} style={{ color: "#f00" }} autoFocus>
+                        Delete
                 </Button>
-                    </DialogActions>
-                </Dialog>
+                </DialogActions>
+            </Dialog>
         </Fragment>
     )
 }

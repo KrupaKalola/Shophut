@@ -9,7 +9,7 @@ import { updateQuantity } from '../../Redux'
 function Quantity_section(props) {
 
 
-    const handleChange = (e, id) => {
+    const handleChange = (e, id, categoryId) => {
         const p = e.target.parentNode.parentNode.getAttribute("id")
         console.log(p)
 
@@ -29,6 +29,7 @@ function Quantity_section(props) {
             const obj = {
                 quantity: minus,
                 cart: props.cart,
+                categoryId: categoryId,
                 id: id
             }
             props.updateQuantity(obj)
@@ -41,6 +42,7 @@ function Quantity_section(props) {
             const obj = {
                 quantity: sum,
                 cart: props.cart,
+                categoryId: categoryId,
                 id: id
             }
             console.log('obj: ', obj)
@@ -62,9 +64,9 @@ function Quantity_section(props) {
 
     return (
         <div className='quantity-square' style={{margin: '0 auto'}}>
-            <span id='minus' onClick={(e) => handleChange(e, props.id)}><FontAwesomeIcon icon={faMinus} ></FontAwesomeIcon></span>
+            <span id='minus' onClick={(e) => handleChange(e, props.id, props.categoryId)}><FontAwesomeIcon icon={faMinus} ></FontAwesomeIcon></span>
             <input type='type' value={props.quantity} style={{ width: '50px' }}  readOnly />
-            <span id='plus' onClick={(e) => handleChange(e, props.id)}><FontAwesomeIcon icon={faPlus} ></FontAwesomeIcon></span>
+            <span id='plus' onClick={(e) => handleChange(e, props.id, props.categoryId)}><FontAwesomeIcon icon={faPlus} ></FontAwesomeIcon></span>
         </div>
     )
 }

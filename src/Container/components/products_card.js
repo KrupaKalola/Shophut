@@ -19,10 +19,10 @@ function ProductsCard(props) {
         debugger
         console.log('status:' , status )
         if (status == true) {
-            return <Quantity_section quantity={quantity} id={id} cart={props.cart} updateQuantity={props.updateQuantity}/>
+            return <Quantity_section quantity={quantity} id={id} cart={props.cart} updateQuantity={props.updateQuantity} categoryId={props.categoryId}/>
         }
         else {
-            return <Typography className='product-cart' onClick={() => props.addItemsTOCart(props.data)} >
+            return <Typography className='product-cart' onClick={() => props.addItemsTOCart(props.data, props.categoryId)} >
                 <IconButton style={{ padding: '0px' }}>
                     <ShoppingCart />
                 </IconButton>

@@ -10,10 +10,12 @@ import { addToCart } from '../../Redux'
 class Home extends Component {
     
 
-    handleAddItemToCart = (product) => {
+    handleAddItemToCart = (product, categoryId) => {
         // product.isAdded = true
-        // console.log(product)
-        this.props.addTOCart(product)
+        console.log(product , categoryId)
+        debugger
+        const obj = [ product , categoryId]
+        this.props.addTOCart(obj)
     }
 
 
@@ -35,7 +37,6 @@ class Home extends Component {
                             <Grid container spacing={2}>
                                     {
                                         this.props.list.map((data, index) => {
-
                                             if (index < 4) {
                                                 return <ProductsCard addItemsTOCart={this.handleAddItemToCart.bind(this)} data={data.items[index]} categoryId={data.categoryId}
                                                 />
